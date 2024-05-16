@@ -14,7 +14,6 @@ module.exports = (fastify) => {
                 [id, body.title, body.content, body.status, slug, createdOn, body.categoryId]
             );
         } catch (err) {
-            console.log(err);
             throw err;
         } finally {
             client.release();
