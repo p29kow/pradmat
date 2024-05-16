@@ -14,7 +14,7 @@ const categoryRoute = async (fastify) => {
         { preValidation: isLoggedIn },
         async (request, reply) => {
             return reply.viewAsync('/pages/categories/add.ejs', {
-                title: '',
+                title: 'Add Category',
                 user: request.user
             });
         });
@@ -22,7 +22,7 @@ const categoryRoute = async (fastify) => {
     fastify.get('/', async (request, reply) => {
         const categories = await findAll();
         return reply.viewAsync('/pages/categories/all.ejs', {
-            title: '',
+            title: 'Categories',
             categories,
             user: request.user
         });
