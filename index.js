@@ -11,7 +11,7 @@ const exceptionFilter = require('./helpers/error-handling/exception-filter');
 const configSchema = require('./config-schema');
 
 fastify.register(require('@fastify/helmet'), {
-    contentSecurityPolicy: false;
+    contentSecurityPolicy: false,
 });
 fastify.register(require('@fastify/csrf-protection'));
 
