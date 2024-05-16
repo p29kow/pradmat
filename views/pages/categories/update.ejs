@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../partials/head') %>
+</head>
+<body>
+    <%- include('../../partials/nav') %>
+    <main class="valign-wrapper">
+        <div class="container">
+            <h1>Update Category</h1>
+            <form action="/categories/<%= category.slug %>" method="post">
+                <input type="hidden" name="_method" value="PATCH">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" name="name" type="text" class="validate" value="<%= category.name %>">
+                        <label for="name">Name</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light">
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+    </main>
+    <%- include('../../partials/footer') %>
+</body>
+</html>

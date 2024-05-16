@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head') %>
+</head>
+
+<body>
+    <%- include('../../partials/nav') %>
+        <main class="valign-wrapper">
+            <div class="container">
+                <h1>Create Category</h1>
+                <form action="/categories" method="post">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="name" name="name" type="text" class="validate">
+                            <label for="name">Name</label>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light">
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </main>
+        <%- include('../../partials/footer') %>
+</body>
+
+</html>

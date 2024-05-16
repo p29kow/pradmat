@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head') %>
+</head>
+
+<body>
+    <%- include('../../partials/nav') %>
+        <main>
+            <div class="container">
+                <section>
+                    <h1>Newest Posts</h1>
+                    <% if (user) { %>
+                        <a href="/posts/add">Add Post</a>
+                        <% } %>
+                            <div class="row">
+                                <% posts.forEach(post=> { %>
+                                    <div class="col s6 m4 l3">
+                                        <div class="card">
+                                            <div class="card-content white-text">
+                                                <span class="card-title capitalise truncate">
+                                                    <%= post.title %>
+                                                </span>
+                                                <p class="truncate">
+                                                    <%= post.content %>
+                                                </p>
+                                            </div>
+                                            <div class="card-action">
+                                                <a href="/posts/<%= post.slug %>">View Post</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% }) %>
+                            </div>
+                            <a href="/categories" class="right">Explore more posts >></a>
+                </section>
+            </div>
+        </main>
+        <%- include('../../partials/footer') %>
+</body>
+
+</html>

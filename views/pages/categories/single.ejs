@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head') %>
+</head>
+
+<body>
+    <%- include('../../partials/nav') %>
+        <main class="valign-wrapper">
+            <div class="container">
+                <h1><%= title %></h1>
+                <% if (user) { %>
+                    <a href="/categories/update/<%= category.slug %>">Edit Category</a>
+                <% } %>
+                <form action="/categories/<%= category.slug %>" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="red lighten-2 waves-effect waves-light btn-small">Delete</button>
+                </form>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <% if (posts.length === 0) { %>
+                                <p class="white-text">Stay tuned! New posts will be arriving shortly.</p>
+                            <% } else { %>
+                                <% posts.forEach(post => { %>
+                                    <div class="col s6 m4 l3">
+                                        <div class="card">
+                                            <div class="card-content white-text">
+                                                <span class="card-title capitalise truncate">
+                                                    <%= post.title %>
+                                                </span>
+                                                <p class="truncate">
+                                                    <%= post.content %>
+                                                </p>
+                                            </div>
+                                            <div class="card-action">
+                                                <a href="/posts/<%= post.slug %>">View Post</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }) %>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 100%;" class="center-align">
+                    <ul class="pagination">
+                        <% for( let index = 1; index <= pageCount; index++ ) { %>
+                            <li class="active"><a href="/categories/<%= category.slug %>?page=<%= index %>"><%= index %></a></li>
+                        <% } %>
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+        <%- include('../../partials/footer') %>
+</body>
+
+</html>

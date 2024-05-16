@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head') %>
+</head>
+
+<body>
+    <%- include('../../partials/nav') %>
+        <main>
+            <div class="container">
+                <h1 class="capitalise"><%= post.title %></h1>
+                <p class="white-text">
+                        <%- content %>
+                </p>
+                <% if (user) { %>
+                    <p>Post Status: <%= post.status %></p>
+                 <a href="/posts/update/<%= post.slug %>">Edit Post</a>
+                 <form action="/posts/<%= post.slug %>" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="red lighten-2 waves-effect waves-light btn-small">Delete</button>
+                 </form>
+                <% } %>
+            </div>
+        </main>
+        <%- include('../../partials/footer') %>
+</body>
+
+</html>

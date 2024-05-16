@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head') %>
+</head>
+
+<body>
+    <%- include('../../partials/nav') %>
+        <main class="valign-wrapper">
+            <div class="container">
+                <h1>
+                    <%= title %>
+                </h1>
+                <form action="/posts/<%= post.slug %>" method="post">
+                    <input type="hidden" name="_method" value="PATCH">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="title" type="text" name="title" class="validate" value="<%= post.title %>" required>
+                            <label for="title">Title</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label>Status</label>
+                        <p>Current Status: <%= post.status %>
+                        </p>
+                        <select class="browser-default" name="status" required>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="draft">Draft</option>
+                            <option value="unpublished">Unpublished</option>
+                            <option value="published">Published</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea class="materialize-textarea" name="content" required><%= post.content %></textarea>
+                            <label>Textarea</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label>Category</label>
+                        <p>Current Category: <%= currentCategory.name %>
+                        </p>
+                        <select class="browser-default" name="categoryId" required>
+                            <option value="" disabled selected>Choose your option</option>
+                            <% categories.forEach(category=> { %>
+                                <option value="<%= category.id %>">
+                                    <%= category.name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+                    <button class="btn waves-effect waves-light">
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </main>
+        <%- include('../../partials/footer') %>
+</body>
+
+</html>

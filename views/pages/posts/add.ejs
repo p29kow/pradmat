@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../../partials/head') %>
+</head>
+
+<body>
+    <%- include('../../partials/nav') %>
+        <main class="valign-wrapper">
+            <div class="container">
+                <h1>Create Post</h1>
+                <form action="/posts" method="post">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="title" name="title" type="text" class="validate">
+                            <label for="title">Title</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label>Status</label>
+                        <select class="browser-default" name="status">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="draft">Draft</option>
+                            <option value="unpublished">Unpublished</option>
+                            <option value="published">Published</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+                            <label for="textarea1">Content</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label>Category</label>
+                        <select class="browser-default" name="categoryId">
+                            <option value="" disabled selected>Choose your option</option>
+                            <% categories.forEach(category => { %>
+                                <option value="<%= category.id %>"><%= category.name %></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <button class="btn waves-effect waves-light">
+                        Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </main>
+        <%- include('../../partials/footer') %>
+</body>
+
+</html>
