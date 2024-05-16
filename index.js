@@ -85,6 +85,7 @@ fastify.setErrorHandler(exceptionFilter);
 const startApp = async () => {
     try {
         await fastify.listen({
+            host: ("RENDER" in process.env) ? `0.0.0.0` : `localhost`,
             port: process.env.PORT || 3000
         });
     } catch (err) {
