@@ -11,9 +11,10 @@ module.exports = (fastify) => {
                 'INSERT INTO posts ' +
                 '(id, title, content, status, slug, created_on, category_id) ' +
                 'VALUES ($1, $2, $3, $4, $5, $6, $7)',
-                [id, body.title, body.content, body.status, slug, createdOn, body.categoryId ?? null]
+                [id, body.title, body.content, body.status, slug, createdOn, body.categoryId]
             );
         } catch (err) {
+            console.log(err);
             throw err;
         } finally {
             client.release();
