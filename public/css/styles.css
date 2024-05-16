@@ -41,6 +41,7 @@ p {
   letter-spacing: normal;
   word-spacing: normal;
   text-align: justify;
+  color: #e9e7e5;
 }
 
 .card-content, .card-action, .card-panel, .card {
