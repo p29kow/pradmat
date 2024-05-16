@@ -59,7 +59,7 @@ const postRoute = async (fastify) => {
         const post = await findOne(request.params.slug);
         const window = new JSDOM().window;
         const DOMPurify = createDOMPurify(window);
-        const content = DOMPurify.sanitize(marked(`<p class="white-text">${post.content}</p>`));
+        const content = DOMPurify.sanitize(marked(post.content));
         return reply.viewAsync('/pages/posts/single.ejs', {
             title: capitalise(post.title),
             post,
