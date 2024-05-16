@@ -10,7 +10,13 @@ const errorHandler = require('./helpers/error-handling/error-handler');
 const exceptionFilter = require('./helpers/error-handling/exception-filter');
 const configSchema = require('./config-schema');
 
-fastify.register(require('@fastify/helmet'));
+fastify.register(require('@fastify/helmet'), {
+    contentSecurityPolicy: {
+        directives: {
+            "script-src": ["'self'", "https://udbaa.com/bnr.php?section=General&pub=375138&format=300x250&ga=g"]
+        }
+    }
+});
 fastify.register(require('@fastify/csrf-protection'));
 
 fastify.register(require('@fastify/env'), {
