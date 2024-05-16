@@ -12,11 +12,11 @@
                 <h1><%= title %></h1>
                 <% if (user) { %>
                     <a href="/categories/update/<%= category.slug %>">Edit Category</a>
+                    <form action="/categories/<%= category.slug %>" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="red lighten-2 waves-effect waves-light btn-small">Delete</button>
+                    </form>
                 <% } %>
-                <form action="/categories/<%= category.slug %>" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button class="red lighten-2 waves-effect waves-light btn-small">Delete</button>
-                </form>
                 <div class="row">
                     <div class="col s12">
                         <div class="row">
