@@ -11,11 +11,7 @@ const exceptionFilter = require('./helpers/error-handling/exception-filter');
 const configSchema = require('./config-schema');
 
 fastify.register(require('@fastify/helmet'), {
-    contentSecurityPolicy: {
-        directives: {
-            "script-src": ["'self'", "https://udbaa.com/bnr.php?section=General&pub=375138&format=300x250&ga=g"]
-        }
-    }
+    contentSecurityPolicy: false;
 });
 fastify.register(require('@fastify/csrf-protection'));
 
