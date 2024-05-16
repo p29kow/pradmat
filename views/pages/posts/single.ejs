@@ -10,9 +10,7 @@
         <main>
             <div class="container">
                 <h1 class="capitalise"><%= post.title %></h1>
-                <p class="white-text">
-                        <%- content %>
-                </p>
+                <%- content %>
                 <% if (user) { %>
                     <p>Post Status: <%= post.status %></p>
                  <a href="/posts/update/<%= post.slug %>">Edit Post</a>
