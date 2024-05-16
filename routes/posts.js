@@ -11,12 +11,7 @@ const postRoute = async (fastify) => {
     fastify.post('/',
         { preValidation: isLoggedIn },
         async (request, reply) => {
-            await create({
-                title: request.body.title,
-                status: request.body.status,
-                content: request.body.content,
-                categoryId: request.body.categoryId
-            });
+            await create(request.body);
             return reply.redirect('/categories');
         });
 
