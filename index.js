@@ -69,7 +69,7 @@ fastify.register(require('@fastify/static'), {
 });
 
 fastify.register(require('@fastify/static'), {
-    root: __dirname,
+    root: join(__dirname, 'ads'),
     decorateReply: false
 });
 
