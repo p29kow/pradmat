@@ -68,8 +68,7 @@ fastify.register(require('@fastify/static'), {
 });
 
 fastify.register(require('@fastify/static'), {
-    root: join(__dirname, 'uploads', 'posts'),
-    prefix: '/uploads/',
+    root: __dirname,
     decorateReply: false
 });
 
