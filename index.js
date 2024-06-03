@@ -12,7 +12,7 @@ const configSchema = require('./config-schema');
 
 fastify.register(require('@fastify/helmet'), {
     contentSecurityPolicy: false,
-    crossOriginResourcePolicy: { policy: "same-site" },
+    crossOriginResourcePolicy: false,
 });
 fastify.register(require('@fastify/csrf-protection'));
 
